@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JavaScript image cropper.">
+  <meta name="author" content="ankita singh">
+  <title>Cropper.js</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="cropper.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+      
+        <div class="docs-demo">
+          <div class="img-container">
+            <img src="images/image.png" alt="Picture">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+      
+        <div class="docs-preview clearfix">
+          <div class="img-preview preview-lg"></div>
+         
+        </div>
+
+        
+        <div class="docs-data">
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataX" style="background-color: #e67e22;">X</label>
+            </span>
+            <input type="text" class="form-control" id="dataX" placeholder="x">
+            <span class="input-group-append" style="background-color: #e67e22;">
+              <span class="input-group-text" style="background-color: #e67e22;">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataY" style="background-color: #e67e22;">Y</label>
+            </span>
+            <input type="text" class="form-control" id="dataY" placeholder="y">
+            <span class="input-group-append" style="background-color: #e67e22;">
+              <span class="input-group-text" style="background-color: #e67e22;">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataWidth" style="background-color: #e67e22;">Width</label>
+            </span>
+            <input type="text" class="form-control" id="dataWidth" placeholder="width">
+            <span class="input-group-append" style="background-color: #e67e22;">
+              <span class="input-group-text" style="background-color: #e67e22;">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataHeight" style="background-color: #e67e22;">Height</label>
+            </span>
+            <input type="text" class="form-control" id="dataHeight" placeholder="height">
+            <span class="input-group-append" style="background-color: #e67e22;">
+              <span class="input-group-text" style="background-color: #e67e22;">px</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataRotate" style="background-color: #e67e22;">Rotate</label>
+            </span>
+            <input type="text" class="form-control" id="dataRotate" placeholder="rotate">
+            <span class="input-group-append" style="background-color: #e67e22;">
+              <span class="input-group-text" style="background-color: #e67e22;">deg</span>
+            </span>
+          </div>
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataScaleX" style="background-color: #e67e22;">ScaleX</label>
+            </span>
+            <input type="text" class="form-control" id="dataScaleX" placeholder="scaleX">
+          </div>
+          <div class="input-group input-group-sm" style="border:2px solid #d35400">
+            <span class="input-group-prepend" style="background-color: #e67e22;">
+              <label class="input-group-text" for="dataScaleY" style="background-color: #e67e22;">ScaleY</label>
+            </span>
+            <input type="text" class="form-control" id="dataScaleY" placeholder="scaleY">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="actions">
+      <div class="col-md-9 docs-buttons">
+        
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="move" title="Move" 
+          style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.setDragMode(&quot;move&quot;)">
+              <span class="fa fa-arrows-alt"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="crop" title="Crop" 
+          style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.setDragMode(&quot;crop&quot;)">
+              <span class="fa fa-crop-alt"></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoom(0.1)">
+              <span class="fa fa-search-plus"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoom(-0.1)">
+              <span class="fa fa-search-minus"></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(-10, 0)">
+              <span class="fa fa-arrow-left"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(10, 0)">
+              <span class="fa fa-arrow-right"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(0, -10)">
+              <span class="fa fa-arrow-up"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(0, 10)">
+              <span class="fa fa-arrow-down"></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
+              <span class="fa fa-undo-alt"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
+              <span class="fa fa-redo-alt"></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="scaleX" data-option="-1" title="Flip Horizontal" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.scaleX(-1)">
+              <span class="fa fa-arrows-alt-h"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="scaleY" data-option="-1" title="Flip Vertical" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.scaleY(-1)">
+              <span class="fa fa-arrows-alt-v"></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="crop" title="Crop" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.crop()">
+              <span class="fa fa-check"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="clear" title="Clear" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.clear()">
+              <span class="fa fa-times"></span>
+            </span>
+          </button>
+        </div>
+
+
+        <div class="btn-group">
+          <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file" 
+          style="background-color: #e67e22;border:2px solid #d35400">
+            <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
+            <span class="docs-tooltip" data-toggle="tooltip" title="Import image with Blob URLs">
+              <span class="fa fa-upload"></span>Upload Image
+            </span>
+          </label>
+         
+        </div>
+
+        <div class="btn-group btn-group-crop">
+          <button type="button" class="btn btn-success" data-method="getCroppedCanvas" 
+          data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }" style="background-color: #e67e22;border:2px solid #d35400">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 })">
+              Download Cropped Canvas Image
+            </span>
+          </button>
+         
+        </div>
+
+        
+        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" role="dialog" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="getCroppedCanvasTitle">Cropped</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #e67e22;border:2px solid #d35400">Close</button>
+                <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg" style="background-color: #e67e22;border:2px solid #d35400">Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-3 docs-toggles">
+        
+
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="cropper.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
